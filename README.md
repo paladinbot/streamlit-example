@@ -4,8 +4,9 @@ Project created for Projeto Final Integrador 2 class on Universidade de Fortalez
 ## Links
 🔗 Deploy do projeto [deploy] (https://app-example-etz8igywkc8j9tnmhegmyc.streamlit.app/)
 
-🔗 Relatório do projeto: [relatório](https://docs.google.com/document/d/1TXxaGYOVHVc0wmW9zdWqLr81KgP_UMzzM1nVfXnr6ac/edit)
-🔗 Link to original project on github https://github.com/Fernanda-Kipper/portfolio-project
+🔗 Relatório do projeto: [relatório] (https://docs.google.com/document/d/1TXxaGYOVHVc0wmW9zdWqLr81KgP_UMzzM1nVfXnr6ac/edit)
+
+🔗 Link to original project on github [Link do github] (https://github.com/paladinbot/streamlit-example)
 
 ## Create Project
 streamlit run streamlit_app.py
