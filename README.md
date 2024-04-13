@@ -1,6 +1,6 @@
 # MultSent
 <p align="center">
-<a href=""><img src="imgs/tela.png" alt="MultSent" width="450px"></a>
+<a href=""><img src="imgs/tela2.png" alt="MultSent" width="450px"></a>
 </p>
 Project created for Projeto Final Integrador 2 class on Universidade de Fortaleza
 
