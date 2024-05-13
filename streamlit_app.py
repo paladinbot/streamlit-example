@@ -1,14 +1,21 @@
+__version__ = "1.0.0.0"
+app_name = "Multsent"
+
 import streamlit as st
 from wordcloud import WordCloud
-from util import get_chatgpt_response, get_regex_sentiment, SimpleGroupedColorFunc, processar_string
+from util import get_chatgpt_response, get_regex_sentiment, SimpleGroupedColorFunc, processar_string, get_response
+from api_key import get_api_key
 import matplotlib.pyplot as plt
 import time
+#from api_call import 
 
 tempo = 0
 sentimento = ''
 input_cloud = ''
 st.title("MultSent : Análise de Sentimentos")
 st.subheader("Preencha os dados abaixo para realizar a sua análise")
+
+#page = st.sidebar.selectbox("Escolha uma página", ["Página Principal", "Inserir Chave API"])
 
 def get_world_cloud(text, color_func):
     wordcloud = WordCloud(width=800, height=400, background_color='white', color_func=color_func).generate(text)
@@ -17,9 +24,40 @@ def get_world_cloud(text, color_func):
     plt.axis("off")
     plt.show()
 
+
+def ui_spacer(n=2, line=False, next_n=0):
+	for _ in range(n):
+		st.write('')
+	if line:
+		st.tabs([' '])
+	for _ in range(next_n):
+		st.write('')
+
+def ui_info():
+	st.markdown(f"""
+	# Multsent
+	versão {__version__}
+	
+	Ferramente de Análise de Sentimento utilizando LLMs.
+	""")
+	ui_spacer(1)
+	st.write("Feito por [Yuri Herbert](https://www.linkedin.com/in/yuri-herbert-5a3952109/).", unsafe_allow_html=True)
+	ui_spacer(1)
+	st.markdown("""
+		Obrigado pelo seu interesse na minha aplicação.
+		Esteja atento que essa é apenas uma prova de conceito 
+		para a disciplina de Projeto Final Integrador 2 
+		da [Universidade de Fortaleza](https://www.unifor.br/)
+		e pode conter alguns bugs e features incompletas.
+		Se você gostar desse app você pode [me seguir](https://twitter.com/Yur1Herbert)
+		no Twitter para novidades e atualizações.
+		""")
+	ui_spacer(1)
+	st.markdown('O código fonte pode ser encontrado [aqui](https://github.com/mobarski/ask-my-pdf).')
+
 model = st.selectbox(
     "Selecione o modelo",
-    ("gpt-3.5", "llama-2", "bloom")
+    ("llama-2-70b", "llama-3-8b", "llama-3-70b")
 )
 
 if 'generated' not in st.session_state:
@@ -34,7 +72,7 @@ sub = st.button('Processar a Sentença')
 
 if sub:
     texto_prompt=f"""Dado o texto abaixo, pegue o sentimento central do texto (positivo, negativo ou neutro), 
-e até 30 palavras do texto com semântica relacionadas com o sentimento percebido. Caso não tenha 30, gere as demais
+e 30 palavras do texto com semântica relacionadas com o sentimento percebido. Caso não tenha 30, gere as demais
 respeitando que elas tem que estar relacionadas semânticamente com o texto.
 A saída tem que ser no formato:
 "Sentimento: _valor do sentimento_\nPalavras: palavra1, palavra2, (...), palavra30"
@@ -54,22 +92,25 @@ Lhe dou uma gorjeta depois.
    
     with st.spinner("generating..."):
         start = time.time()
-        response = get_chatgpt_response(texto_prompt)
+        #response = get_chatgpt_response(texto_prompt)
+        response = get_response(texto_prompt)
         end = time.time()
         tempo = round(end-start, 2)
         st.session_state.past.append(query)
         st.session_state.generated.append(response)
         st.session_state.generated.append(tempo)
 		
+with st.sidebar:
+	ui_info()
 
-        
 if st.session_state['generated']:
 	st.write('Tempo usado para a análise: ', st.session_state.generated[1], 'segundos')
 	submit = st.button('Ver sentimentos e nuvem de palavras')
 	if submit:
 		st.empty()
 		sentimento, input_cloud = processar_string(st.session_state.generated[0])
-		sentimento = sentimento.lower()
+		print(sentimento)
+		#sentimento = sentimento.lower()
 		st.write(processar_string(st.session_state.generated[0]))
 		#st.write("o que vai gerar as palavras do wordcloud: " + input_cloud)
 		st.write(sentimento)
