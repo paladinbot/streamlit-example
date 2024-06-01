@@ -12,6 +12,11 @@ import time
 tempo = 0
 sentimento = ''
 input_cloud = ''
+# Carregar a imagem
+image = 'imgs/logo.png'
+
+# Inserir a imagem no app Streamlit
+st.image(image, use_column_width=True)
 st.title("MultSent : Análise de Sentimentos")
 st.subheader("Preencha os dados abaixo para realizar a sua análise")
 
