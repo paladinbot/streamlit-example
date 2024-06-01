@@ -57,7 +57,7 @@ def ui_info():
 
 model = st.selectbox(
     "Selecione o modelo",
-    ("llama-2-70b", "llama-3-8b", "llama-3-70b")
+    ("llama3-8b-8192", "llama3-70b-8192", "gemma-7b-it", "mixtral-8x7b-32768")
 )
 
 if 'generated' not in st.session_state:
