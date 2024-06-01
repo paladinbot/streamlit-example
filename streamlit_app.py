@@ -34,6 +34,11 @@ def ui_spacer(n=2, line=False, next_n=0):
 		st.write('')
 
 def ui_info():
+	# Carregar a imagem
+	image = 'imgs/logo.png'
+
+	# Inserir a imagem no app Streamlit
+	st.image(image, use_column_width=True)
 	st.markdown(f"""
 	# Multsent
 	versão {__version__}

@@ -2,8 +2,7 @@
 <p align="center">
 <a href=""><img src="imgs/tela2.png" alt="MultSent" width="450px"></a>
 </p>
-Project created for Projeto Final Integrador 2 class on Universidade de Fortaleza
-
+Projeto criado para a disciplina de Projeto Final Integrador 2 na Universidade de Fortaleza
 ## Links
 🔗 Deploy do projeto [deploy] (https://app-example-etz8igywkc8j9tnmhegmyc.streamlit.app/)
 
@@ -11,10 +10,10 @@ Project created for Projeto Final Integrador 2 class on Universidade de Fortalez
 
 🔗 Link to original project on github [Link do github] (https://github.com/paladinbot/streamlit-example)
 
-## Create Project
+## Subir o MultSent
 streamlit run streamlit_app.py
 
-## Getting Started
+## Primeiros Passos
 First, run the development server:
 
 streamlit run streamlit_app.py
