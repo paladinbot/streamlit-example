@@ -14,7 +14,7 @@ Projeto criado para a disciplina de Projeto Final Integrador 2 na Universidade d
 streamlit run streamlit_app.py
 
 ## Primeiros Passos
-First, run the development server:
+Primeiro, rode o server de desenvolvimento:
 
 streamlit run streamlit_app.py
 
@@ -22,12 +22,8 @@ You can start editing the page by modifying app/page.tsx. The page auto-updates 
 
 This project uses next/font to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
-To learn more about Next.js, take a look at the following resources:
-
-Next.js Documentation - learn about Next.js features and API.
-Learn Next.js - an interactive Next.js tutorial.
-You can check out the Next.js GitHub repository - your feedback and contributions are welcome!
+## Saiba mais sobre o projeto
+Dê um fork no projeto, recomendações de atualizações, e tirem dúvidas aqui pelo github.
 
 ## Deploy on Streamlit
-The easiest way to deploy your streamlit app is to use the [streamlit Platform] (https://share.streamlit.io/signup).
+A melhor maneira de colocar em produção é utilizando o serviço da [streamlit Platform] (https://share.streamlit.io/signup).
