@@ -13,7 +13,7 @@ sentimento = ''
 input_cloud = ''
 
 #st.title("MultSent : Análise de Sentimentos")
-st.subheader("Preencha os dados abaixo para realizar a sua análise")
+st.subheader("Preencha os dados abaixo para realizar a sua classificação")
 
 #page = st.sidebar.selectbox("Escolha uma página", ["Página Principal", "Inserir Chave API"])
 
