@@ -7,12 +7,21 @@ from util import get_chatgpt_response, get_regex_sentiment, SimpleGroupedColorFu
 from api_key import get_api_key
 import matplotlib.pyplot as plt
 import time
-
+	
 tempo = 0
 sentimento = ''
 input_cloud = ''
 
 #st.title("MultSent : Análise de Sentimentos")
+# st.write(" ")
+# st.write(" ")
+# st.write(" ")
+# st.write(" ")
+# st.write(" ")
+# st.write(" ")
+# st.write(" ")
+# st.write(" ")
+
 st.subheader("Preencha os dados abaixo para realizar a sua classificação")
 
 #page = st.sidebar.selectbox("Escolha uma página", ["Página Principal", "Inserir Chave API"])
@@ -43,7 +52,7 @@ def ui_info():
 	# Multsent
 	versão {__version__}
 	
-	Ferramenta de Classificação de Sentimento utilizando LLMs.
+	Ferramenta de Classificação de Sentimento utilizando LLMs. 
 	""")
 	ui_spacer(1)
 	st.write("Feito por [Yuri Herbert](https://www.linkedin.com/in/yuri-herbert-5a3952109/).", unsafe_allow_html=True)
@@ -72,7 +81,7 @@ if 'past' not in st.session_state:
 
 query = st.text_area("Insira sua sentença: ", key="input")
 
-sub = st.button('Processar a Sentença')
+sub = st.button('Processar')
 
 
 if sub:
@@ -110,16 +119,16 @@ with st.sidebar:
 
 if st.session_state['generated']:
 	st.write('Tempo usado para a análise: ', st.session_state.generated[1], 'segundos')
-	submit = st.button('Ver sentimentos e nuvem de palavras')
+	submit = st.button('Ver sentimento e nuvem de palavras')
 	if submit:
 		st.empty()
 		sentimento, input_cloud = processar_string(st.session_state.generated[0])
-		print(sentimento)
+		#print(sentimento)
 		#sentimento = sentimento.lower()
 		st.write(processar_string(st.session_state.generated[0]))
 		#st.write("o que vai gerar as palavras do wordcloud: " + input_cloud)
-		st.write(sentimento)
-		st.write(model)
+		#st.write(sentimento)
+		#st.write(model)
 
 		if(sentimento == "positivo"):            
 			wordcloud = WordCloud(width=800, height=400, background_color='white', color_func=SimpleGroupedColorFunc('green')).generate(input_cloud)
